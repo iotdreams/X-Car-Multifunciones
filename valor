@@ -1,0 +1,27 @@
+puerto=$1
+valor=$2
+### ejemplo:  valor 26 1; valor 26 0
+
+#clear
+#echo ""
+#echo "----------Epineda!-----------"
+#date
+#echo "Ingresando valor $valor a GPIO $puerto"
+
+
+#### codigo omitido
+echo $valor >  /sys/class/gpio/gpio$puerto/value
+
+
+
+
+#### codigo omitido
+#cd /sys/class/gpio/
+#cd gpio$puerto
+#echo $valor > value
+
+#echo "Valor del GPIO $puerto"
+#cat /sys/class/gpio/gpio$puerto/value
+#echo ""
+#echo "FIN"
+#echo "-------------------"

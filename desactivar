@@ -1,0 +1,21 @@
+puerto=$1
+modo=$2
+### ejemplo:  desactivar 26; 
+
+clear
+echo ""
+echo ""
+echo "----------Epineda!-----------"
+date
+echo "Descativando GPIO $puerto"
+
+cd /sys/class/gpio/
+echo $puerto > unexport
+
+echo ""
+echo "Verificando estado de los puertos GPIO"
+ls -ltra
+
+echo ""
+echo "FIN"
+echo "-------------------"

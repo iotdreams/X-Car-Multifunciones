@@ -1,0 +1,31 @@
+puerto=$1
+modo=$2
+### ejemplo:  activar 26 in; active 26 out
+
+clear
+echo ""
+echo "----------Epineda!-----------"
+date
+echo "Activando GPIO $puerto en modo $modo"
+
+
+cd /sys/class/gpio/
+echo $puerto > export
+
+echo "Listando GPIOs:"
+ls -ltr 
+
+echo ""
+cd gpio$puerto
+echo $modo > direction
+
+echo "Verificando estado del GPIO"
+echo "Direccion o modo"
+cat /sys/class/gpio/gpio$puerto/direction
+
+echo "Valor"
+cat /sys/class/gpio/gpio$puerto/value
+
+echo ""
+echo "FIN"
+echo "-------------------"

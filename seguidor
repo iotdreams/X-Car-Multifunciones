@@ -1,0 +1,39 @@
+echo "----------Epineda!-----------"
+date
+
+while true
+do
+
+sensorI=$(cat /sys/class/gpio/gpio13/value)
+sensorD=$(cat /sys/class/gpio/gpio6/value)
+
+# cero = blanco
+# uno = negro
+
+if [ "$sensorI" == 1 ] && [ "$sensorD" == 1 ]
+then
+	adelante
+fi
+
+if [ $sensorI == 0 ] && [ $sensorD == 0 ]
+then
+       atras 
+fi
+
+if [ $sensorI == 0 ] && [ $sensorD == 1 ]
+then
+      derecha 
+fi
+
+if [ $sensorI == 1 ] && [ $sensorD == 0 ]
+then
+     izquierda 
+fi
+
+
+sleep 0.5
+done
+
+echo ""
+echo "FIN"
+echo "-------------------"

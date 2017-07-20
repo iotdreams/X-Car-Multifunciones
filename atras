@@ -1,0 +1,7 @@
+valor 12 1
+valor 5 1
+sleep 0.01
+
+valor 12 0
+valor 5 0
+

@@ -1,0 +1,29 @@
+puerto=$1
+puerto2=$2
+### ejemplo:  monitor 26; 
+
+echo "----------Epineda!-----------"
+date
+
+while true
+do
+
+coco=$(cat /sys/class/gpio/gpio$puerto/value)
+
+if [ $coco == 0 ]
+then
+	estado="Activado"
+	valor $puerto2 1
+else
+	estado="Desactivado"
+	valor $puerto2 0
+fi
+
+echo "El sensor $puerto esta: $estado"
+
+sleep 0.5
+done
+
+echo ""
+echo "FIN"
+echo "-------------------"
